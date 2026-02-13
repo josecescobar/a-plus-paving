@@ -18,7 +18,17 @@
         .border-custom-green { border-color: #5BA83A; }
         .shadow-custom-green { box-shadow: 0 10px 15px -3px rgba(91, 168, 58, 0.2), 0 4px 6px -2px rgba(91, 168, 58, 0.1); }
         .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-slideInLeft { animation: slideInLeft 0.7s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.7s ease-out forwards; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -29,7 +39,7 @@
                 <a href="index.html" class="text-2xl font-extrabold text-gray-900 tracking-tight">A+ Paving & Landscaping</a>
             </div>
 
-            <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu">
+            <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
@@ -46,9 +56,10 @@
             </nav>
         </div>
     </header>
+    <main>
     <section class="py-16 md:py-28 bg-gray-900 text-white">
         <div class="container mx-auto px-4 max-w-4xl">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 animate-fadeInUp">Let's Connect</h2>
+            <h1 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 animate-fadeInUp">Let's Connect</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="flex flex-col items-center text-center md:items-start md:text-left animate-slideInLeft delay-100">
                     <h3 class="text-3xl font-semibold text-custom-green mb-6">Reach Out to Us</h3>
@@ -56,7 +67,7 @@
                         <strong class="font-medium">Phone:</strong> <a href="tel:+13045793872" class="hover:underline">(304) 579-3872</a>
                     </p>
                     <p class="text-lg mb-4">
-                        <strong class="font-medium">Email:</strong> <a href="mailto:Morris.small.paving@gmail.com" class="hover:underline">Morris.small.paving@gmail.com</a>
+                        <strong class="font-medium">Email:</strong> <a href="mailto:morris.small.paving@gmail.com" class="hover:underline">morris.small.paving@gmail.com</a>
                     </p>
                     <p class="text-lg mb-4">
                         <strong class="font-medium">Service Area:</strong> Proudly serving West Virginia & Pennsylvania
@@ -66,10 +77,10 @@
                     </p>
                     <img src="images/6B495C08-D4D2-4FAF-A08B-232DC4281514.jpeg" alt="A+ Paving and Landscaping Logo" class="w-full max-w-sm rounded-lg shadow-md mb-6">
                     <div class="flex space-x-6">
-                        <!-- TODO: Replace Instagram href="#" with actual URL when available -->
                         <a href="https://www.facebook.com/profile.php?id=100066637093750" class="text-gray-400 hover:text-custom-green transition duration-300 transform hover:scale-110" aria-label="Facebook">
                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
+                        <!-- Placeholder: replace href="#" with Instagram URL when available -->
                         <a href="#" class="text-gray-400 hover:text-custom-green transition duration-300 transform hover:scale-110" aria-label="Instagram">
                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         </a>
@@ -80,13 +91,16 @@
                 </div>
                 <div class="w-full animate-slideInRight delay-300">
                     <h3 class="text-3xl font-semibold text-custom-green mb-6 text-center md:text-left">Send Us a Message</h3>
-                    <form class="space-y-6">
+                    <!-- Replace YOUR_FORM_ID below with your actual Formspree form ID -->
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                        <input type="hidden" name="_subject" value="New inquiry from A+ Paving website">
+                        <input type="hidden" name="_next" value="contact.html">
                         <div>
-                            <label for="name" class="block text-lg font-medium text-gray-200">Name</label>
+                            <label for="name" class="block text-lg font-medium text-gray-200">Name <span class="text-red-400">*</span></label>
                             <input type="text" id="name" name="name" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="Your Full Name" required>
                         </div>
                         <div>
-                            <label for="email" class="block text-lg font-medium text-gray-200">Email</label>
+                            <label for="email" class="block text-lg font-medium text-gray-200">Email <span class="text-red-400">*</span></label>
                             <input type="email" id="email" name="email" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="your@email.com" required>
                         </div>
                         <div>
@@ -94,7 +108,7 @@
                             <input type="tel" id="phone" name="phone" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="(123) 456-7890">
                         </div>
                         <div>
-                            <label for="message" class="block text-lg font-medium text-gray-200">Message</label>
+                            <label for="message" class="block text-lg font-medium text-gray-200">Message <span class="text-red-400">*</span></label>
                             <textarea id="message" name="message" rows="5" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="Tell us about your project or inquiry..." required></textarea>
                         </div>
                         <button type="submit" class="w-full bg-custom-green hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg shadow-xl transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-custom-green focus:ring-opacity-75">
@@ -105,6 +119,7 @@
             </div>
         </div>
     </section>
+    </main>
     <footer class="bg-gray-800 text-gray-300 py-10">
         <div class="container mx-auto text-center px-4">
             <p class="text-sm md:text-base">&copy; 2025&ndash;2026 A+ Paving & Landscaping. All rights reserved.</p>
@@ -120,7 +135,10 @@
 
     <script>
     document.getElementById('menu-toggle').addEventListener('click', function() {
-        document.getElementById('nav-menu').classList.toggle('hidden');
+        var menu = document.getElementById('nav-menu');
+        menu.classList.toggle('hidden');
+        var expanded = !menu.classList.contains('hidden');
+        this.setAttribute('aria-expanded', expanded);
     });
     </script>
 </body>

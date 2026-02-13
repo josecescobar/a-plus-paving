@@ -18,7 +18,17 @@
         .border-custom-green { border-color: #5BA83A; }
         .shadow-custom-green { box-shadow: 0 10px 15px -3px rgba(91, 168, 58, 0.2), 0 4px 6px -2px rgba(91, 168, 58, 0.1); }
         .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-slideInLeft { animation: slideInLeft 0.7s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.7s ease-out forwards; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
         .gallery-item img { transition: transform 0.3s ease-in-out; }
         .gallery-item:hover img { transform: scale(1.05); }
     </style>
@@ -31,7 +41,7 @@
                 <a href="index.html" class="text-2xl font-extrabold text-gray-900 tracking-tight">A+ Paving & Landscaping</a>
             </div>
 
-            <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu">
+            <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
@@ -48,28 +58,20 @@
             </nav>
         </div>
     </header>
+    <main>
     <section class="py-16 md:py-28 bg-white relative">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fadeInUp">Our Premium Services</h2>
+            <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fadeInUp">Our Premium Services</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div class="bg-gray-50 rounded-xl shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl border-t-8 border-custom-green animate-slideInLeft delay-100">
-                    <div class="text-6xl text-custom-green mb-6 text-center">
-                        <!-- SVG icon here -->
-                    </div>
                     <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">Expert Paving</h3>
                     <p class="text-gray-700 text-center leading-relaxed">Crafting durable and visually stunning driveways, parking lots, and pathways. Specializing in asphalt, concrete, and tar & chip applications for lasting quality.</p>
                 </div>
                 <div class="bg-gray-50 rounded-xl shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl border-t-8 border-custom-green animate-fadeInUp delay-300">
-                    <div class="text-6xl text-custom-green mb-6 text-center">
-                        <!-- SVG icon here -->
-                    </div>
                     <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">Creative Landscaping</h3>
                     <p class="text-gray-700 text-center leading-relaxed">Transforming outdoor spaces with innovative designs, lush plantings, and elegant hardscaping elements like patios and walkways.</p>
                 </div>
                 <div class="bg-gray-50 rounded-xl shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-xl border-t-8 border-custom-green animate-slideInRight delay-500">
-                    <div class="text-6xl text-custom-green mb-6 text-center">
-                        <!-- SVG icon here -->
-                    </div>
                     <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">Reliable Roofing</h3>
                     <p class="text-gray-700 text-center leading-relaxed">Providing robust roofing solutions, from new installations to meticulous repairs and replacements, ensuring long-lasting protection and peace of mind.</p>
                 </div>
@@ -140,8 +142,48 @@
                     </div>
                 </div>
             </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mt-16 mb-10">Landscaping & Hardscaping</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden">
+                    <div class="relative w-full h-40 flex items-center justify-center bg-gray-200">
+                        <img src="images/concrete-patio-installation.jpg" alt="Concrete Patio Installation" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <span class="text-white text-lg font-bold drop-shadow">Concrete Patio Installation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden">
+                    <div class="relative w-full h-40 flex items-center justify-center bg-gray-200">
+                        <img src="images/front-garden-bed-transformation.jpg" alt="Front Garden Bed Transformation" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <span class="text-white text-lg font-bold drop-shadow">Front Garden Bed Transformation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg p-0 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden">
+                    <div class="relative w-full h-40 flex items-center justify-center bg-gray-200">
+                        <img src="images/porch-landscaping-makeover.jpg" alt="Porch Landscaping Makeover" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <span class="text-white text-lg font-bold drop-shadow">Porch Landscaping Makeover</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section class="py-16 bg-custom-green text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl md:text-2xl mb-8">Call us today for a free, no-obligation estimate.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="tel:+13045793872" class="text-2xl md:text-3xl font-bold hover:underline">(304) 579-3872</a>
+                <a href="contact.html" class="inline-block bg-white text-custom-green font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 hover:bg-gray-100 hover:scale-105 transform">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    </main>
     <footer class="bg-gray-800 text-gray-300 py-10">
         <div class="container mx-auto text-center px-4">
             <p class="text-sm md:text-base">&copy; 2025&ndash;2026 A+ Paving & Landscaping. All rights reserved.</p>
@@ -157,7 +199,10 @@
 
     <script>
     document.getElementById('menu-toggle').addEventListener('click', function() {
-        document.getElementById('nav-menu').classList.toggle('hidden');
+        var menu = document.getElementById('nav-menu');
+        menu.classList.toggle('hidden');
+        var expanded = !menu.classList.contains('hidden');
+        this.setAttribute('aria-expanded', expanded);
     });
     </script>
 </body>

@@ -18,7 +18,17 @@
         .border-custom-green { border-color: #5BA83A; }
         .shadow-custom-green { box-shadow: 0 10px 15px -3px rgba(91, 168, 58, 0.2), 0 4px 6px -2px rgba(91, 168, 58, 0.1); }
         .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-slideInLeft { animation: slideInLeft 0.7s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.7s ease-out forwards; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
         .gallery-item img { transition: transform 0.3s ease-in-out; }
         .gallery-item:hover img { transform: scale(1.05); }
     </style>
@@ -31,7 +41,7 @@
                 <a href="index.html" class="text-2xl font-extrabold text-gray-900 tracking-tight">A+ Paving & Landscaping</a>
             </div>
 
-            <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu">
+            <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
@@ -48,9 +58,10 @@
             </nav>
         </div>
     </header>
+    <main>
     <section class="py-16 md:py-28 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fadeInUp">Our Signature Projects</h2>
+            <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16 animate-fadeInUp">Our Signature Projects</h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center">
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
                     <img src="images/driveway_residential_garagefront_20250424.jpg" alt="Garage driveway with fresh asphalt" class="w-full h-64 object-cover">
@@ -77,56 +88,83 @@
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/driveway_extension_sideyard_2024.jpg" alt="Driveway extension side yard" class="w-full h-64 object-cover">
+                    <img src="images/driveway_extension_sideyard_2024.jpg" alt="Driveway extension side yard" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Driveway Extension – Side Yard</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/parkinglot_commercial_striping_2024.jpg" alt="Freshly paved commercial parking lot" class="w-full h-64 object-cover">
+                    <img src="images/parkinglot_commercial_striping_2024.jpg" alt="Freshly paved commercial parking lot" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Commercial Parking Lot – Fresh Asphalt</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/driveway_residential_curvedentry_20250424.jpg" alt="Curved entry driveway with fresh paving" class="w-full h-64 object-cover">
+                    <img src="images/driveway_residential_curvedentry_20250424.jpg" alt="Curved entry driveway with fresh paving" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Curved Entry Driveway</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/driveway_residential_stoneborder_20250424.jpg" alt="Residential driveway with stone border detail" class="w-full h-64 object-cover">
+                    <img src="images/driveway_residential_stoneborder_20250424.jpg" alt="Residential driveway with stone border detail" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Driveway with Stone Border</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/driveway_residential_sideyard_20250424.jpg" alt="Side yard driveway extension" class="w-full h-64 object-cover">
+                    <img src="images/driveway_residential_sideyard_20250424.jpg" alt="Side yard driveway extension" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Side Yard Driveway</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/driveway_residential_triplex_20250424.jpg" alt="Triplex residential driveway paving" class="w-full h-64 object-cover">
+                    <img src="images/driveway_residential_triplex_20250424.jpg" alt="Triplex residential driveway paving" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Triplex Driveway</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/driveway_woodedcurve_residential_2024.jpg" alt="Wooded curve residential driveway" class="w-full h-64 object-cover">
+                    <img src="images/driveway_woodedcurve_residential_2024.jpg" alt="Wooded curve residential driveway" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Wooded Curve Driveway</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
-                    <img src="images/driveway_residential_front_20250424.jpg" alt="Front residential driveway freshly paved" class="w-full h-64 object-cover">
+                    <img src="images/driveway_residential_front_20250424.jpg" alt="Front residential driveway freshly paved" class="w-full h-64 object-cover" loading="lazy">
                     <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                         <span class="text-white text-lg font-bold">Front Driveway – New Asphalt</span>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
+                    <img src="images/concrete-patio-installation.jpg" alt="Concrete patio installation" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white text-lg font-bold">Concrete Patio Installation</span>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
+                    <img src="images/front-garden-bed-transformation.jpg" alt="Front garden bed transformation" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white text-lg font-bold">Front Garden Bed Transformation</span>
+                    </div>
+                </div>
+                <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200">
+                    <img src="images/porch-landscaping-makeover.jpg" alt="Porch landscaping makeover" class="w-full h-64 object-cover" loading="lazy">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
+                        <span class="text-white text-lg font-bold">Porch Landscaping Makeover</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="py-16 bg-custom-green text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Like What You See?</h2>
+            <p class="text-xl md:text-2xl mb-8">Let us bring the same quality craftsmanship to your property.</p>
+            <a href="contact.html" class="inline-block bg-white text-custom-green font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 hover:bg-gray-100 hover:scale-105 transform">Get Your Free Estimate</a>
+        </div>
+    </section>
+    </main>
     <footer class="bg-gray-800 text-gray-300 py-10">
         <div class="container mx-auto text-center px-4">
             <p class="text-sm md:text-base">&copy; 2025&ndash;2026 A+ Paving & Landscaping. All rights reserved.</p>
@@ -142,7 +180,10 @@
 
     <script>
     document.getElementById('menu-toggle').addEventListener('click', function() {
-        document.getElementById('nav-menu').classList.toggle('hidden');
+        var menu = document.getElementById('nav-menu');
+        menu.classList.toggle('hidden');
+        var expanded = !menu.classList.contains('hidden');
+        this.setAttribute('aria-expanded', expanded);
     });
     </script>
 </body>
