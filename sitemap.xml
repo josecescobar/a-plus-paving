@@ -21,6 +21,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://apluspavingtoday.com/reviews</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apluspavingtoday.com/service-area</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://apluspavingtoday.com/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>

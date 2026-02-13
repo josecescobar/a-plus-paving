@@ -50,10 +50,6 @@ body {
 .delay-500 { animation-delay: 0.5s; }
 .delay-600 { animation-delay: 0.6s; }
 
-/* Gallery hover effect */
-.gallery-item img { transition: transform 0.3s ease-in-out; }
-.gallery-item:hover img { transform: scale(1.05); }
-
 /* ── Accessibility ─────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

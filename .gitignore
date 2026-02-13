@@ -2,3 +2,10 @@
 .idea/
 node_modules/
 tailwind-input.css
+
+# Design source files
+*.psd
+*.ai
+
+# Unprocessed image folder
+images/untitled folder/
