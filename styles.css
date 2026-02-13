@@ -1,0 +1,186 @@
+/* A+ Paving & Landscaping — Shared Styles */
+
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Brand colors */
+.bg-custom-green { background-color: #5BA83A; }
+.text-custom-green { color: #5BA83A; }
+.border-custom-green { border-color: #5BA83A; }
+.shadow-custom-green {
+    box-shadow: 0 10px 15px -3px rgba(91, 168, 58, 0.2),
+                0 4px 6px -2px rgba(91, 168, 58, 0.1);
+}
+
+/* Keyframe animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fadeInDown  { animation: fadeInDown 0.8s ease-out forwards; }
+.animate-fadeInUp    { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-zoomIn      { animation: zoomIn 0.6s ease-out forwards; }
+.animate-slideInLeft { animation: slideInLeft 0.7s ease-out forwards; }
+.animate-slideInRight{ animation: slideInRight 0.7s ease-out forwards; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* Gallery hover effect */
+.gallery-item img { transition: transform 0.3s ease-in-out; }
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* ── Accessibility ─────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Visible focus rings */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #5BA83A;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Active button press */
+button:active,
+a.inline-block:active {
+    transform: scale(0.97);
+}
+
+/* ── Scroll-to-top button ──────────────────────── */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    background-color: #5BA83A;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+    z-index: 100;
+}
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-to-top:hover {
+    background-color: #4a9030;
+    transform: scale(1.1);
+}
+.scroll-to-top:active {
+    transform: scale(0.95);
+}
+
+/* ── Lightbox ──────────────────────────────────── */
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+.lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    z-index: 210;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lightbox-close:hover { color: #5BA83A; }
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 210;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+.lightbox-nav:hover { color: #5BA83A; }
+.lightbox-prev { left: 1rem; }
+.lightbox-next { right: 1rem; }
+
+/* ── Star ratings ──────────────────────────────── */
+
+.stars {
+    color: #f59e0b;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
