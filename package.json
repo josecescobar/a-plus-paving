@@ -3,6 +3,9 @@
     "dev": "tailwindcss -i tailwind-input.css -o tailwind.css --watch",
     "build": "tailwindcss -i tailwind-input.css -o tailwind.css --minify"
   },
+  "dependencies": {
+    "resend": "^4.8.0"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.19"
   }

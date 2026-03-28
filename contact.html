@@ -124,6 +124,12 @@
                 <div class="w-full animate-slideInRight delay-300">
                     <h2 class="text-3xl font-semibold text-custom-green mb-6 text-center md:text-left">Send Us a Message</h2>
 
+                    <div id="form-success" class="hidden bg-green-600 text-white rounded-lg p-6 text-center mb-6" aria-live="polite">
+                        <svg class="w-12 h-12 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <p class="text-xl font-bold mb-2">Message Sent!</p>
+                        <p>Thank you for reaching out. We'll get back to you within 1 business day.</p>
+                    </div>
+
                     <form id="contact-form" class="space-y-6" novalidate>
                         <div>
                             <label for="name" class="block text-lg font-medium text-gray-200">Name <span class="text-red-400">*</span></label>
@@ -178,6 +184,8 @@
     <script>
     (function() {
         const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successBanner = document.getElementById('form-success');
 
         function showError(input, msg) {
             const err = input.parentElement.querySelector('.field-error');
@@ -200,15 +208,32 @@
             if (!messageEl.value.trim()) { showError(messageEl, 'Message is required.'); valid = false; }
             if (!valid) return;
 
-            var subject = encodeURIComponent('New Inquiry from A+ Paving Website - ' + nameEl.value.trim());
-            var body = encodeURIComponent(
-                'Name: ' + nameEl.value.trim() + '\n' +
-                'Email: ' + emailEl.value.trim() + '\n' +
-                'Phone: ' + (phoneEl.value.trim() || 'Not provided') + '\n\n' +
-                'Message:\n' + messageEl.value.trim()
-            );
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
-            window.location.href = 'mailto:morris.small.paving@gmail.com?subject=' + subject + '&body=' + body;
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: nameEl.value.trim(),
+                    email: emailEl.value.trim(),
+                    phone: phoneEl.value.trim(),
+                    message: messageEl.value.trim()
+                })
+            }).then(function(response) {
+                if (response.ok) {
+                    form.reset();
+                    form.classList.add('hidden');
+                    successBanner.classList.remove('hidden');
+                } else {
+                    throw new Error('Submission failed');
+                }
+            }).catch(function() {
+                alert('Something went wrong. Please try again or call us at (304) 579-3872.');
+            }).finally(function() {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Your Inquiry';
+            });
         });
     })();
     </script>
