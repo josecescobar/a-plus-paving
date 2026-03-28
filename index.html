@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -91,7 +91,10 @@
 
     <main id="main">
     <section id="home" class="relative bg-gray-900 text-white py-24 md:py-40 overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/driveway_residential_front_20250602.webp');"></div>
+        <picture class="absolute inset-0">
+            <source srcset="images/driveway_residential_front_20250602.webp" type="image/webp">
+            <img src="images/driveway_residential_front_20250602.jpg" alt="" class="w-full h-full object-cover" width="1223" height="800" fetchpriority="high">
+        </picture>
         <div class="absolute inset-0 bg-black opacity-70"></div>
         <div class="container mx-auto relative z-10 text-center px-4">
             <h1 class="text-3xl md:text-5xl lg:text-7xl font-extrabold leading-tight mb-6 animate-fadeInDown">

@@ -75,6 +75,14 @@ a.inline-block:active {
     transform: scale(0.97);
 }
 
+/* ── Hero image ───────────────────────────────── */
+
+#home > picture {
+    display: block;
+    position: absolute;
+    inset: 0;
+}
+
 /* ── Scroll-to-top button ──────────────────────── */
 
 .scroll-to-top {
