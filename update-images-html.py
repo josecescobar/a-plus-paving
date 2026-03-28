@@ -122,14 +122,21 @@ def process_file(filepath):
     original = content
 
     # 1. Wrap <img> tags that reference images/ in <picture>
-    # Match img tags but NOT ones already inside <picture>
-    # First check if file already has <picture> tags
-    if '<picture>' not in content:
-        content = re.sub(
-            r'<img\s[^>]*src="[^"]*images/[^"]*"[^>]*>',
-            process_img_tag,
-            content
-        )
+    # Skip img tags already inside a <picture> element
+    def wrap_if_unwrapped(match):
+        # Check if this <img> is preceded by a <picture> tag (i.e. already wrapped)
+        before = content[:match.start()]
+        last_picture_open = before.rfind('<picture>')
+        last_picture_close = before.rfind('</picture>')
+        if last_picture_open > last_picture_close:
+            return match.group(0)
+        return process_img_tag(match)
+
+    content = re.sub(
+        r'<img\s[^>]*src="[^"]*images/[^"]*"[^>]*>',
+        wrap_if_unwrapped,
+        content
+    )
 
     # 2. Update preload tags
     content = re.sub(

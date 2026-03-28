@@ -1,5 +1,14 @@
 /* A+ Paving & Landscaping — Shared Styles */
 
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url('fonts/inter-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
@@ -10,10 +19,7 @@ body {
 .bg-custom-green { background-color: #5BA83A; }
 .text-custom-green { color: #5BA83A; }
 .border-custom-green { border-color: #5BA83A; }
-.shadow-custom-green {
-    box-shadow: 0 10px 15px -3px rgba(91, 168, 58, 0.2),
-                0 4px 6px -2px rgba(91, 168, 58, 0.1);
-}
+
 
 /* Keyframe animations */
 @keyframes fadeInDown {
@@ -46,9 +52,7 @@ body {
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
-.delay-600 { animation-delay: 0.6s; }
 
 /* ── Accessibility ─────────────────────────────── */
 

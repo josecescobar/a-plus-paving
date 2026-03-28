@@ -56,15 +56,23 @@ for img in "$IMG_DIR"/*.jpg "$IMG_DIR"/*.jpeg; do
 
   after_size=$(stat -f%z "$webp_out")
   total_after=$((total_after + after_size))
-  savings=$(( (before_size - after_size) * 100 / before_size ))
+  if [ "$before_size" -gt 0 ]; then
+    savings=$(( (before_size - after_size) * 100 / before_size ))
+  else
+    savings=0
+  fi
 
   printf "  %-55s %6dK → %6dK  (%2d%% saved)\n" \
     "$basename" $((before_size/1024)) $((after_size/1024)) "$savings"
 done
 
 echo ""
-echo "Total JPEG: $((total_before/1024))K"
-echo "Total WebP: $((total_after/1024))K"
-echo "Overall savings: $(( (total_before - total_after) * 100 / total_before ))%"
+if [ "$total_before" -eq 0 ]; then
+  echo "No JPEG images found in $IMG_DIR"
+else
+  echo "Total JPEG: $((total_before/1024))K"
+  echo "Total WebP: $((total_after/1024))K"
+  echo "Overall savings: $(( (total_before - total_after) * 100 / total_before ))%"
+fi
 echo ""
 echo "Done. WebP files created alongside originals in images/"

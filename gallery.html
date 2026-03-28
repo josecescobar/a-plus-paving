@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Signature Projects - A+ Paving and Landscaping</title>
+    <meta name="theme-color" content="#5BA83A">
+    <title>Our Signature Projects - A+ Paving & Landscaping</title>
     <meta name="description" content="Browse our portfolio of completed paving projects — driveways, parking lots, sealcoating, and more. See the quality craftsmanship of A+ Paving & Landscaping.">
-    <meta property="og:title" content="Project Gallery - A+ Paving and Landscaping">
+    <meta property="og:title" content="Our Signature Projects - A+ Paving & Landscaping">
     <meta property="og:description" content="Browse our portfolio of completed paving projects in West Virginia and Pennsylvania.">
     <meta property="og:image" content="https://apluspavingtoday.com/images/driveway_residential_curvedentry_20250424.jpg">
     <meta property="og:type" content="website">
@@ -46,9 +47,6 @@
     </script>
     <link rel="preload" as="image" href="images/driveway_residential_garagefront_20250424.webp" type="image/webp">
     <link rel="stylesheet" href="tailwind.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -250,7 +248,7 @@
     </footer>
 
     <!-- Lightbox -->
-    <div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
         <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
         <button class="lightbox-nav lightbox-prev" aria-label="Previous image">&#8249;</button>
         <img src="" alt="">
@@ -269,6 +267,8 @@
         const items = document.querySelectorAll('.gallery-image');
         const images = [];
         let currentIndex = 0;
+        let triggerElement = null;
+        const focusableEls = lightbox.querySelectorAll('button');
 
         items.forEach(function(item) {
             const source = item.querySelector('source[type="image/webp"]');
@@ -278,6 +278,7 @@
 
         items.forEach(function(item, i) {
             item.addEventListener('click', function() {
+                triggerElement = item;
                 currentIndex = i;
                 openLightbox();
             });
@@ -288,11 +289,13 @@
             lightboxImg.alt = images[currentIndex].alt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            lightbox.querySelector('.lightbox-close').focus();
         }
 
         function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
+            if (triggerElement) triggerElement.focus();
         }
 
         function showPrev() {
@@ -316,10 +319,19 @@
         });
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
             if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') showPrev();
             if (e.key === 'ArrowRight') showNext();
+            if (e.key === 'Tab') {
+                var first = focusableEls[0];
+                var last = focusableEls[focusableEls.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+                } else {
+                    if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+                }
+            }
         });
     })();
     </script>
