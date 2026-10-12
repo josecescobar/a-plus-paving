@@ -2,6 +2,16 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        { "type": "host", "value": "www.apluspavingtoday.com" }
+      ],
+      "destination": "https://apluspavingtoday.com/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/sealcoating", "destination": "/services/sealcoating" },
     { "source": "/driveway-paving", "destination": "/services/driveway-paving" }
