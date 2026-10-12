@@ -96,7 +96,7 @@
     }
 
     /* ── Estimate forms (same /api/contact payload as before) ── */
-    document.querySelectorAll('form.estimate-form').forEach(function (form) {
+    document.querySelectorAll('form.estimate-form:not(#contact-form)').forEach(function (form) {
         var successBanner = form.parentElement.querySelector('.form-success');
         var errorBanner = form.parentElement.querySelector('.form-error');
 
