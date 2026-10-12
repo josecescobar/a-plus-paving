@@ -71,4 +71,27 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    /* ── Sticky mobile call / estimate bar ── */
+    var cta = document.createElement('div');
+    cta.id = 'mobile-cta';
+    cta.className = 'mobile-cta';
+    cta.setAttribute('role', 'region');
+    cta.setAttribute('aria-label', 'Call or request an estimate');
+    cta.innerHTML = ''
+        + '<a class="mobile-cta-call" href="tel:+13045793872" aria-label="Call A+ Paving and Landscaping at (304) 579-3872">'
+        + '<span class="mobile-cta-kicker">Call</span>'
+        + '<span class="mobile-cta-number">(304) 579-3872</span>'
+        + '</a>'
+        + '<a class="mobile-cta-estimate" href="/contact" aria-label="Request a free estimate">Free estimate</a>';
+    document.body.appendChild(cta);
+    document.body.classList.add('has-mobile-cta');
+
+    var footer = document.querySelector('footer');
+    if (footer && 'IntersectionObserver' in window) {
+        var footerWatcher = new IntersectionObserver(function (entries) {
+            document.body.classList.toggle('footer-in-view', entries[0].isIntersecting);
+        }, { threshold: 0.01 });
+        footerWatcher.observe(footer);
+    }
 })();
