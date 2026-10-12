@@ -73,6 +73,22 @@ def adjust_paths_for_blog(block):
     return block
 
 
+def page_key(href):
+    """Map a clean or .html href to the filename used in NAV_ACTIVE."""
+    base = os.path.basename(href)
+    path = href.split("#", 1)[0]
+    if path in ("/", ""):
+        return "index.html"
+    if "#" in base:
+        stem, frag = base.split("#", 1)
+        if stem.endswith(".html"):
+            return base
+        return stem + ".html#" + frag
+    if base.endswith(".html"):
+        return base
+    return base + ".html"
+
+
 def set_active_link(block, active_href, is_nav=True):
     """Set the active page highlight in nav or footer links."""
     if is_nav:
@@ -91,8 +107,7 @@ def set_active_link(block, active_href, is_nav=True):
         def activate(m):
             href = m.group(1)
             classes = m.group(2)
-            basename = os.path.basename(href)
-            if basename == active_href:
+            if page_key(href) == active_href:
                 new_classes = classes.replace(inactive, active)
                 return f'href="{href}" class="{new_classes}'
             return m.group(0)
