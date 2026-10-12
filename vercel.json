@@ -61,6 +61,18 @@
       ]
     },
     {
+      "source": "/services/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/service-area/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
       "source": "/(sitemap.xml|robots.txt)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=3600" }
