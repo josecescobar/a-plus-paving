@@ -4,7 +4,7 @@ Usage: python3 sync-nav-footer.py
 
 Uses index.html as the source of truth. Extracts the <header>...</header>
 and <footer>...</footer> blocks and replaces them in all other HTML files,
-adjusting relative paths (e.g., href="x" → href="../x") for blog/ pages.
+adjusting relative paths (e.g., href="x" → href="../x") for blog/, services/, and service-area/ pages.
 
 The active-page highlight (text-custom-green font-semibold) is preserved
 per page based on the page's own filename.
@@ -141,14 +141,15 @@ def process():
 
     # Process all HTML files
     html_files = sorted(glob.glob(os.path.join(ROOT, "*.html")))
-    html_files += sorted(glob.glob(os.path.join(ROOT, "blog", "*.html")))
+    for subdir in ("blog", "services", "service-area"):
+        html_files += sorted(glob.glob(os.path.join(ROOT, subdir, "*.html")))
 
     for filepath in html_files:
         basename = os.path.basename(filepath)
         reldir = os.path.relpath(os.path.dirname(filepath), ROOT)
-        is_blog = reldir == "blog"
+        is_nested = reldir != "."
 
-        if basename == "index.html" and not is_blog:
+        if basename == "index.html" and not is_nested:
             continue  # skip source of truth
 
         with open(filepath) as f:
@@ -159,24 +160,29 @@ def process():
             print(f"  Skipped: {os.path.relpath(filepath, ROOT)} (missing header/footer)")
             continue
 
-        # Prepare header
-        new_header = header_block
-        if is_blog:
+        if reldir == "blog":
             nav_active = BLOG_NAV_ACTIVE
-            new_header = adjust_paths_for_blog(new_header)
+            footer_active = BLOG_FOOTER_ACTIVE
+        elif reldir == "services":
+            nav_active = "services.html"
+            footer_active = basename
+        elif reldir == "service-area":
+            nav_active = None
+            footer_active = "service-area.html"
         else:
             nav_active = NAV_ACTIVE.get(basename)
+            footer_active = FOOTER_ACTIVE.get(basename)
 
+        # Prepare header
+        new_header = header_block
+        if is_nested:
+            new_header = adjust_paths_for_blog(new_header)
         new_header = set_active_link(new_header, nav_active, is_nav=True)
 
         # Prepare footer
         new_footer = footer_block
-        if is_blog:
-            footer_active = BLOG_FOOTER_ACTIVE
+        if is_nested:
             new_footer = adjust_paths_for_blog(new_footer)
-        else:
-            footer_active = FOOTER_ACTIVE.get(basename)
-
         new_footer = set_active_link(new_footer, footer_active, is_nav=False)
 
         # Replace blocks
