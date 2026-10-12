@@ -94,4 +94,92 @@
         }, { threshold: 0.01 });
         footerWatcher.observe(footer);
     }
+
+    /* ── Estimate forms (same /api/contact payload as before) ── */
+    document.querySelectorAll('form.estimate-form').forEach(function (form) {
+        var successBanner = form.parentElement.querySelector('.form-success');
+        var errorBanner = form.parentElement.querySelector('.form-error');
+
+        function fieldError(input) {
+            return input.parentElement.querySelector('.field-error');
+        }
+
+        function clearField(input) {
+            var err = fieldError(input);
+            if (err) err.textContent = '';
+            input.removeAttribute('aria-invalid');
+        }
+
+        function setFieldError(input, msg) {
+            var err = fieldError(input);
+            if (err) err.textContent = msg;
+            input.setAttribute('aria-invalid', 'true');
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (errorBanner) {
+                errorBanner.textContent = '';
+                errorBanner.classList.add('hidden');
+            }
+            form.querySelectorAll('[name="name"], [name="email"], [name="message"]').forEach(clearField);
+
+            var honeypot = form.querySelector('[name="company_website"]');
+            if (honeypot && honeypot.value.trim()) {
+                form.reset();
+                form.classList.add('hidden');
+                if (successBanner) successBanner.classList.remove('hidden');
+                return;
+            }
+
+            var nameEl = form.querySelector('[name="name"]');
+            var emailEl = form.querySelector('[name="email"]');
+            var phoneEl = form.querySelector('[name="phone"]');
+            var messageEl = form.querySelector('[name="message"]');
+            var valid = true;
+
+            if (!nameEl.value.trim()) {
+                setFieldError(nameEl, 'Name is required.');
+                valid = false;
+            }
+            if (!emailEl.value.trim() || !emailEl.validity.valid) {
+                setFieldError(emailEl, 'A valid email is required.');
+                valid = false;
+            }
+            if (!messageEl.value.trim()) {
+                setFieldError(messageEl, 'Message is required.');
+                valid = false;
+            }
+            if (!valid) return;
+
+            var submitBtn = form.querySelector('[type="submit"]');
+            var submitLabel = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: nameEl.value.trim(),
+                    email: emailEl.value.trim(),
+                    phone: phoneEl ? phoneEl.value.trim() : '',
+                    message: messageEl.value.trim()
+                })
+            }).then(function (response) {
+                if (!response.ok) throw new Error('Submission failed');
+                form.reset();
+                form.classList.add('hidden');
+                if (successBanner) successBanner.classList.remove('hidden');
+            }).catch(function () {
+                if (errorBanner) {
+                    errorBanner.textContent = 'Something went wrong. Please try again or call us at (304) 579-3872.';
+                    errorBanner.classList.remove('hidden');
+                }
+            }).finally(function () {
+                submitBtn.disabled = false;
+                submitBtn.textContent = submitLabel;
+            });
+        });
+    });
 })();

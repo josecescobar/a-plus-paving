@@ -269,3 +269,22 @@ a.inline-block:active {
         bottom: 1rem;
     }
 }
+
+/* ── Estimate forms ────────────────────────────── */
+
+.form-hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-error:not(.hidden) {
+    background: #991b1b;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}

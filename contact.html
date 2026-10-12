@@ -153,21 +153,26 @@
                 <div class="w-full animate-slideInRight delay-300">
                     <h2 class="text-3xl font-semibold text-custom-green mb-6 text-center md:text-left">Send Us a Message</h2>
 
-                    <div id="form-success" class="hidden bg-green-600 text-white rounded-lg p-6 text-center mb-6" aria-live="polite">
+                    <div id="form-success" class="form-success hidden bg-green-600 text-white rounded-lg p-6 text-center mb-6" role="status">
                         <svg class="w-12 h-12 mx-auto mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         <p class="text-xl font-bold mb-2">Message Sent!</p>
                         <p>Thank you for reaching out. We'll get back to you within 1 business day.</p>
                     </div>
+                    <div id="form-error" class="form-error hidden" role="alert"></div>
 
-                    <form id="contact-form" class="space-y-6" novalidate>
+                    <form id="contact-form" class="estimate-form space-y-6" novalidate>
+                        <p class="text-sm text-gray-300">Fields marked with <span class="text-red-400">*</span> are required.</p>
+                        <p class="form-hp" aria-hidden="true">
+                            <label>Company website <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
+                        </p>
                         <div>
                             <label for="name" class="block text-lg font-medium text-gray-200">Name <span class="text-red-400">*</span></label>
-                            <input type="text" id="name" name="name" aria-describedby="name-error" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="Your Full Name" required>
+                            <input type="text" id="name" name="name" autocomplete="name" aria-required="true" aria-describedby="name-error" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="Your Full Name" required>
                             <p id="name-error" class="field-error text-red-400 text-sm mt-1" role="alert"></p>
                         </div>
                         <div>
                             <label for="email" class="block text-lg font-medium text-gray-200">Email <span class="text-red-400">*</span></label>
-                            <input type="email" id="email" name="email" aria-describedby="email-error" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="your@email.com" required>
+                            <input type="email" id="email" name="email" autocomplete="email" aria-required="true" aria-describedby="email-error" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="your@email.com" required>
                             <p id="email-error" class="field-error text-red-400 text-sm mt-1" role="alert"></p>
                         </div>
                         <div>
@@ -176,7 +181,7 @@
                         </div>
                         <div>
                             <label for="message" class="block text-lg font-medium text-gray-200">Message <span class="text-red-400">*</span></label>
-                            <textarea id="message" name="message" rows="5" aria-describedby="message-error" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="Tell us about your project or inquiry..." required></textarea>
+                            <textarea id="message" name="message" rows="5" aria-required="true" aria-describedby="message-error" class="mt-2 block w-full p-4 border border-gray-700 rounded-lg shadow-sm bg-gray-800 text-white placeholder-gray-400 focus:ring-custom-green focus:border-custom-green transition duration-200" placeholder="Tell us about your project or inquiry..." required></textarea>
                             <p id="message-error" class="field-error text-red-400 text-sm mt-1" role="alert"></p>
                         </div>
                         <button type="submit" id="submit-btn" class="w-full bg-custom-green hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg shadow-xl transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-custom-green focus:ring-opacity-75">
@@ -216,61 +221,5 @@
     </button>
 
     <script src="scripts.js" defer></script>
-    <script>
-    (function() {
-        const form = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const successBanner = document.getElementById('form-success');
-
-        function showError(input, msg) {
-            const err = input.parentElement.querySelector('.field-error');
-            if (err) err.textContent = msg;
-        }
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            form.querySelectorAll('.field-error').forEach(function(el) { el.textContent = ''; });
-
-            const nameEl = document.getElementById('name');
-            const emailEl = document.getElementById('email');
-            const phoneEl = document.getElementById('phone');
-            const messageEl = document.getElementById('message');
-            let valid = true;
-
-            if (!nameEl.value.trim()) { showError(nameEl, 'Name is required.'); valid = false; }
-            if (!emailEl.value.trim() || !emailEl.validity.valid) { showError(emailEl, 'Please enter a valid email address.'); valid = false; }
-            if (!messageEl.value.trim()) { showError(messageEl, 'Message is required.'); valid = false; }
-            if (!valid) return;
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-
-            fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: nameEl.value.trim(),
-                    email: emailEl.value.trim(),
-                    phone: phoneEl.value.trim(),
-                    message: messageEl.value.trim()
-                })
-            }).then(function(response) {
-                if (response.ok) {
-                    form.reset();
-                    form.classList.add('hidden');
-                    successBanner.classList.remove('hidden');
-                } else {
-                    throw new Error('Submission failed');
-                }
-            }).catch(function() {
-                alert('Something went wrong. Please try again or call us at (304) 579-3872.');
-            }).finally(function() {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Your Inquiry';
-            });
-        });
-    })();
-    </script>
 </body>
 </html>

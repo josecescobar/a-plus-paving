@@ -148,6 +148,43 @@
         </div>
     </article>
 
+    <section class="py-12 bg-gray-50" aria-labelledby="estimate-heading">
+        <div class="container mx-auto px-4 max-w-xl">
+            <h2 id="estimate-heading" class="text-3xl font-bold text-gray-900 mb-3 text-center">Request an estimate</h2>
+            <p class="text-gray-700 text-center mb-6">Fields marked with * are required. Name, email, and a short note are enough.</p>
+            <div class="form-success hidden bg-custom-green text-white rounded-lg p-6 text-center mb-6" role="status">
+                <p class="text-xl font-bold mb-2">Message Sent!</p>
+                <p>Thank you for reaching out. We'll get back to you within 1 business day.</p>
+            </div>
+            <div class="form-error hidden" role="alert"></div>
+            <form class="estimate-form space-y-4" novalidate>
+                <p class="form-hp" aria-hidden="true">
+                    <label>Company website <input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
+                </p>
+                <div>
+                    <label for="estimate-name" class="block text-sm font-medium text-gray-800">Name *</label>
+                    <input type="text" id="estimate-name" name="name" autocomplete="name" aria-required="true" aria-describedby="estimate-name-error" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg" required>
+                    <p id="estimate-name-error" class="field-error text-red-600 text-sm mt-1" role="alert"></p>
+                </div>
+                <div>
+                    <label for="estimate-phone" class="block text-sm font-medium text-gray-800">Phone (optional)</label>
+                    <input type="tel" id="estimate-phone" name="phone" autocomplete="tel" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg">
+                </div>
+                <div>
+                    <label for="estimate-email" class="block text-sm font-medium text-gray-800">Email *</label>
+                    <input type="email" id="estimate-email" name="email" autocomplete="email" aria-required="true" aria-describedby="estimate-email-error" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg" required>
+                    <p id="estimate-email-error" class="field-error text-red-600 text-sm mt-1" role="alert"></p>
+                </div>
+                <div>
+                    <label for="estimate-message" class="block text-sm font-medium text-gray-800">Project *</label>
+                    <textarea id="estimate-message" name="message" rows="3" aria-required="true" aria-describedby="estimate-message-error" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg" placeholder="Town and what you need" required></textarea>
+                    <p id="estimate-message-error" class="field-error text-red-600 text-sm mt-1" role="alert"></p>
+                </div>
+                <button type="submit" class="w-full bg-custom-green text-white font-bold py-4 px-8 rounded-lg">Request estimate</button>
+            </form>
+        </div>
+    </section>
+
     <section class="py-16 bg-custom-green text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
