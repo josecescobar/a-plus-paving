@@ -1,7 +1,6 @@
 .DS_Store
 .idea/
 node_modules/
-tailwind-input.css
 
 # Design source files
 *.psd

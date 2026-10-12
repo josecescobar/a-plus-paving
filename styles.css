@@ -192,3 +192,140 @@ a.inline-block:active {
     font-size: 1.25rem;
     letter-spacing: 2px;
 }
+
+/* ── Mobile call / estimate bar ────────────────── */
+
+.mobile-cta {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    body.has-mobile-cta {
+        padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    body.has-mobile-cta.footer-in-view {
+        padding-bottom: 0;
+    }
+
+    .mobile-cta {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;
+        background: #fff;
+        border-top: 1px solid #d1d5db;
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    body.footer-in-view .mobile-cta {
+        display: none;
+    }
+
+    .mobile-cta a {
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 4.5rem;
+        padding: 0.5rem 0.75rem;
+        font-weight: 700;
+        line-height: 1.15;
+        text-decoration: none;
+    }
+
+    .mobile-cta-call {
+        background: #5BA83A;
+        color: #fff;
+    }
+
+    .mobile-cta-estimate {
+        background: #fff;
+        color: #245016;
+    }
+
+    .mobile-cta-kicker {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    .mobile-cta-number,
+    .mobile-cta-estimate {
+        font-size: 1.125rem;
+    }
+
+    .scroll-to-top {
+        bottom: calc(5.25rem + env(safe-area-inset-bottom, 0px));
+        right: 1rem;
+    }
+
+    body.footer-in-view .scroll-to-top {
+        bottom: 1rem;
+    }
+}
+
+/* ── Estimate forms ────────────────────────────── */
+
+.form-hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ── Header nav ────────────────────────────────── */
+
+@media (max-width: 767px) {
+    .brand-name {
+        max-width: calc(100vw - 7.75rem);
+    }
+
+    .nav-sub {
+        padding-left: 0.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-sub {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 22rem;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        padding: 0.35rem 0;
+        z-index: 60;
+    }
+
+    .nav-item:hover .nav-sub,
+    .nav-item:focus-within .nav-sub {
+        display: block;
+    }
+
+    .nav-sub a {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        white-space: normal;
+    }
+}
+
+.form-error:not(.hidden) {
+    background: #991b1b;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}

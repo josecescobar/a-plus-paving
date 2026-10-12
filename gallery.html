@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#5BA83A">
-    <title>Our Signature Projects - A+ Paving & Landscaping</title>
-    <meta name="description" content="Browse our portfolio of completed paving projects — driveways, parking lots, sealcoating, and more. See the quality craftsmanship of A+ Paving & Landscaping.">
-    <meta property="og:title" content="Our Signature Projects - A+ Paving & Landscaping">
-    <meta property="og:description" content="Browse our portfolio of completed paving projects in West Virginia and Pennsylvania.">
+    <title>Driveway Project Gallery, WV | A+ Paving & Landscaping</title>
+    <meta name="description" content="Photos of asphalt driveways, sealcoating, parking lots, and landscaping by A+ Paving & Landscaping in Martinsburg, Gerrardstown, and the Eastern Panhandle of West Virginia.">
+    <meta property="og:title" content="Driveway Project Gallery, WV | A+ Paving & Landscaping">
+    <meta property="og:description" content="Photos of asphalt driveways, sealcoating, parking lots, and landscaping by A+ Paving & Landscaping in Martinsburg, Gerrardstown, and the Eastern Panhandle of West Virginia.">
     <meta property="og:image" content="https://apluspavingtoday.com/images/driveway_residential_curvedentry_20250424.jpg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://apluspavingtoday.com/gallery">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Project Gallery - A+ Paving and Landscaping">
-    <meta name="twitter:description" content="Browse our portfolio of completed paving projects in West Virginia and Pennsylvania.">
+    <meta name="twitter:title" content="Driveway Project Gallery, WV | A+ Paving & Landscaping">
+    <meta name="twitter:description" content="Photos of asphalt driveways, sealcoating, parking lots, and landscaping by A+ Paving & Landscaping in Martinsburg, Gerrardstown, and the Eastern Panhandle of West Virginia.">
     <meta name="twitter:image" content="https://apluspavingtoday.com/images/driveway_residential_curvedentry_20250424.jpg">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://apluspavingtoday.com/gallery">
@@ -28,10 +28,38 @@
       "description": "Browse our portfolio of completed paving projects — driveways, parking lots, sealcoating, and more.",
       "url": "https://apluspavingtoday.com/gallery",
       "publisher": {
-        "@type": "LocalBusiness",
+        "@type": "HomeAndConstructionBusiness",
         "name": "A+ Paving & Landscaping",
         "telephone": "+1-304-579-3872",
-        "url": "https://apluspavingtoday.com/"
+        "url": "https://apluspavingtoday.com/",
+        "@id": "https://apluspavingtoday.com/#business",
+        "email": "morris.small.paving@gmail.com",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "WV contractor license",
+          "value": "WV0585"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "610 Huckleberry Dr",
+          "addressLocality": "Gerrardstown",
+          "addressRegion": "WV",
+          "postalCode": "25420",
+          "addressCountry": "US"
+        },
+        "openingHours": "Mo,Tu,We,Th,Fr 08:00-17:00",
+        "areaServed": [
+          "Gerrardstown, WV",
+          "Inwood, WV",
+          "Martinsburg, WV",
+          "Charles Town, WV",
+          "Shepherdstown, WV",
+          "Berkeley Springs, WV",
+          "Chambersburg, PA",
+          "Franklin County, PA",
+          "West Virginia",
+          "Pennsylvania"
+        ]
       }
     }
     </script>
@@ -40,12 +68,22 @@
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://apluspavingtoday.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://apluspavingtoday.com/gallery" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://apluspavingtoday.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gallery",
+          "item": "https://apluspavingtoday.com/gallery"
+        }
       ]
     }
     </script>
-    <link rel="preload" as="image" href="images/driveway_residential_garagefront_20250424.webp" type="image/webp">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="tailwind.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -56,9 +94,9 @@
             <div class="flex items-center min-w-0">
                 <picture>
                     <source srcset="images/6B495C08-D4D2-4FAF-A08B-232DC4281514.webp" type="image/webp">
-                    <img src="images/6B495C08-D4D2-4FAF-A08B-232DC4281514.jpeg" alt="A+ Paving and Landscaping Logo" class="h-10 w-10 md:h-14 md:w-14 rounded-full mr-3 shadow-md" width="1400" height="1399">
+                    <img src="images/6B495C08-D4D2-4FAF-A08B-232DC4281514.jpeg" alt="A+ Paving & Landscaping logo" class="h-10 w-10 md:h-14 md:w-14 rounded-full mr-3 shadow-md" width="1400" height="1399">
                 </picture>
-                <a href="index.html" class="text-base md:text-2xl font-extrabold text-gray-900 tracking-tight">A+ Paving & Landscaping</a>
+                <a href="/" class="brand-name text-sm sm:text-base md:text-2xl font-extrabold text-gray-900 tracking-tight leading-tight">A+ Paving & Landscaping</a>
             </div>
 
             <button id="menu-toggle" class="md:hidden flex-shrink-0 text-gray-700 p-2 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
@@ -67,13 +105,29 @@
                 </svg>
             </button>
 
-            <nav>
-                <ul id="nav-menu" class="hidden md:flex flex-col md:flex-row absolute md:relative top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow-lg md:shadow-none px-4 md:px-0 pb-4 md:pb-0 gap-x-6 gap-y-2 text-lg font-medium z-50">
-                    <li><a href="index.html" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Home</a></li>
-                    <li><a href="services.html" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Services</a></li>
-                    <li><a href="gallery.html" class="block py-3 md:py-0 text-custom-green font-semibold hover:text-custom-green transition duration-300 ease-in-out">Gallery</a></li>
-                    <li><a href="about.html" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">About Us</a></li>
-                    <li><a href="contact.html" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Contact</a></li>
+            <nav class="md:flex-1 md:flex md:justify-end md:min-w-0">
+                <ul id="nav-menu" class="hidden md:flex flex-col md:flex-row md:flex-wrap md:justify-end absolute md:relative top-full left-0 w-full md:w-full bg-white md:bg-transparent shadow-lg md:shadow-none px-4 md:px-0 pb-4 md:pb-0 gap-x-4 gap-y-1 text-base font-medium z-50">
+                    <li><a href="/" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Home</a></li>
+                    <li class="nav-item">
+                        <a href="/services" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Services</a>
+                        <ul class="nav-sub">
+                            <li><a href="/services/driveway-paving" class="block py-2 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Driveway Paving</a></li>
+                            <li><a href="/services/parking-lots" class="block py-2 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Parking Lots</a></li>
+                            <li><a href="/services/sealcoating" class="block py-2 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Sealcoating</a></li>
+                            <li><a href="/services/landscaping" class="block py-2 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Landscaping</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/gallery" class="block py-3 md:py-0 text-custom-green font-semibold hover:text-custom-green transition duration-300 ease-in-out">Gallery</a></li>
+                    <li><a href="/about" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">About Us</a></li>
+                    <li><a href="/service-area" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Service Area</a></li>
+                    <li><a href="/faq" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">FAQ</a></li>
+                    <li class="nav-item">
+                        <a href="/blog" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Blog</a>
+                        <ul class="nav-sub">
+                            <li><a href="/blog/how-much-does-asphalt-paving-cost" class="block py-2 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">How Much Does Asphalt Paving Cost</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/contact" class="block py-3 md:py-0 text-gray-700 hover:text-custom-green transition duration-300 ease-in-out">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -86,136 +140,136 @@
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_garagefront_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_garagefront_20250424.jpg" alt="Fresh asphalt garage driveway in Martinsburg, WV" class="w-full h-64 object-cover" loading="lazy" width="828" height="1104">
+                        <img src="images/driveway_residential_garagefront_20250424.jpg" alt="Fresh asphalt garage driveway" class="w-full h-64 object-cover" loading="lazy" width="828" height="1104">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Garage Driveway – Fresh Asphalt</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_streetview_2024.webp" type="image/webp">
-                        <img src="images/driveway_residential_streetview_2024.jpg" alt="Newly paved residential driveway street view in Inwood, WV" class="w-full h-64 object-cover" loading="lazy" width="346" height="628">
+                        <img src="images/driveway_residential_streetview_2024.jpg" alt="Newly paved residential driveway" class="w-full h-64 object-cover" loading="lazy" width="346" height="628">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Street View – Fresh Driveway</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_padextension_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_padextension_20250424.jpg" alt="Residential driveway pad extension in Gerrardstown, WV" class="w-full h-64 object-cover" loading="lazy" width="900" height="1200">
+                        <img src="images/driveway_residential_padextension_20250424.jpg" alt="Residential driveway pad extension" class="w-full h-64 object-cover" loading="lazy" width="900" height="1200">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Driveway Pad Extension</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_rollerwork_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_rollerwork_20250424.jpg" alt="Driveway paving roller work in Berkeley County, WV" class="w-full h-64 object-cover" loading="lazy" width="784" height="444">
+                        <img src="images/driveway_residential_rollerwork_20250424.jpg" alt="Driveway paving roller work" class="w-full h-64 object-cover" loading="lazy" width="784" height="444">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Driveway Paving – Roller Work</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_extension_sideyard_2024.webp" type="image/webp">
-                        <img src="images/driveway_extension_sideyard_2024.jpg" alt="Side yard driveway extension in Charles Town, WV" class="w-full h-64 object-cover" loading="lazy" width="911" height="1200">
+                        <img src="images/driveway_extension_sideyard_2024.jpg" alt="Side yard driveway extension" class="w-full h-64 object-cover" loading="lazy" width="911" height="1200">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Driveway Extension – Side Yard</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/parkinglot_commercial_striping_2024.webp" type="image/webp">
-                        <img src="images/parkinglot_commercial_striping_2024.jpg" alt="Commercial parking lot paving and striping near Shepherdstown, WV" class="w-full h-64 object-cover" loading="lazy" width="1284" height="953">
+                        <img src="images/parkinglot_commercial_striping_2024.jpg" alt="Commercial parking lot paving and striping" class="w-full h-64 object-cover" loading="lazy" width="1284" height="953">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Commercial Parking Lot – Fresh Asphalt</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Parking lot</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_curvedentry_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_curvedentry_20250424.jpg" alt="Curved entry driveway with fresh asphalt in Martinsburg, WV" class="w-full h-64 object-cover" loading="lazy" width="675" height="345">
+                        <img src="images/driveway_residential_curvedentry_20250424.jpg" alt="Curved entry driveway with fresh asphalt" class="w-full h-64 object-cover" loading="lazy" width="675" height="345">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Curved Entry Driveway</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_stoneborder_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_stoneborder_20250424.jpg" alt="Asphalt driveway with stone border detail in Hedgesville, WV" class="w-full h-64 object-cover" loading="lazy" width="351" height="618">
+                        <img src="images/driveway_residential_stoneborder_20250424.jpg" alt="Asphalt driveway with stone border" class="w-full h-64 object-cover" loading="lazy" width="351" height="618">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Driveway with Stone Border</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_sideyard_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_sideyard_20250424.jpg" alt="Side yard driveway paving in Falling Waters, WV" class="w-full h-64 object-cover" loading="lazy" width="887" height="442">
+                        <img src="images/driveway_residential_sideyard_20250424.jpg" alt="Side yard driveway paving" class="w-full h-64 object-cover" loading="lazy" width="887" height="442">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Side Yard Driveway</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_triplex_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_triplex_20250424.jpg" alt="Triplex driveway paving project in Kearneysville, WV" class="w-full h-64 object-cover" loading="lazy" width="659" height="344">
+                        <img src="images/driveway_residential_triplex_20250424.jpg" alt="Triplex driveway paving" class="w-full h-64 object-cover" loading="lazy" width="659" height="344">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Triplex Driveway</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_woodedcurve_residential_2024.webp" type="image/webp">
-                        <img src="images/driveway_woodedcurve_residential_2024.jpg" alt="Wooded curve residential driveway in Berkeley Springs, WV" class="w-full h-64 object-cover" loading="lazy" width="786" height="1400">
+                        <img src="images/driveway_woodedcurve_residential_2024.jpg" alt="Wooded curve residential driveway" class="w-full h-64 object-cover" loading="lazy" width="786" height="1400">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Wooded Curve Driveway</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/driveway_residential_front_20250424.webp" type="image/webp">
-                        <img src="images/driveway_residential_front_20250424.jpg" alt="Freshly paved front driveway in Ranson, WV" class="w-full h-64 object-cover" loading="lazy" width="886" height="1400">
+                        <img src="images/driveway_residential_front_20250424.jpg" alt="Freshly paved front driveway" class="w-full h-64 object-cover" loading="lazy" width="886" height="1400">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Front Driveway – New Asphalt</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Driveway paving</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/concrete-patio-installation.webp" type="image/webp">
-                        <img src="images/concrete-patio-installation.jpg" alt="Concrete patio installation for a home in Gerrardstown, WV" class="w-full h-64 object-cover" loading="lazy" width="960" height="960">
+                        <img src="images/concrete-patio-installation.jpg" alt="Concrete patio installation" class="w-full h-64 object-cover" loading="lazy" width="960" height="960">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Concrete Patio Installation</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Patio</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/front-garden-bed-transformation.webp" type="image/webp">
-                        <img src="images/front-garden-bed-transformation.jpg" alt="Front garden bed landscaping transformation in Inwood, WV" class="w-full h-64 object-cover" loading="lazy" width="960" height="960">
+                        <img src="images/front-garden-bed-transformation.jpg" alt="Front garden bed landscaping" class="w-full h-64 object-cover" loading="lazy" width="960" height="960">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Front Garden Bed Transformation</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Garden bed</span>
                     </div>
                 </div>
                 <div class="relative rounded-2xl shadow-lg overflow-hidden bg-gray-200 cursor-pointer gallery-image">
                     <picture>
                         <source srcset="images/porch-landscaping-makeover.webp" type="image/webp">
-                        <img src="images/porch-landscaping-makeover.jpg" alt="Porch landscaping makeover in the Eastern Panhandle, WV" class="w-full h-64 object-cover" loading="lazy" width="960" height="960">
+                        <img src="images/porch-landscaping-makeover.jpg" alt="Porch landscaping makeover" class="w-full h-64 object-cover" loading="lazy" width="960" height="960">
                     </picture>
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span class="text-white text-lg font-bold">Porch Landscaping Makeover</span>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 p-3">
+                        <span class="text-white text-lg font-bold">Landscaping</span>
                     </div>
                 </div>
             </div>
@@ -226,7 +280,7 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-5xl font-bold mb-6">Like What You See?</h2>
             <p class="text-xl md:text-2xl mb-8">Let us bring the same quality craftsmanship to your property.</p>
-            <a href="contact.html" class="inline-block bg-white text-custom-green font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 hover:bg-gray-100 hover:scale-105 transform">Get Your Free Estimate</a>
+            <a href="/contact" class="inline-block bg-white text-custom-green font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 hover:bg-gray-100 hover:scale-105 transform">Get Your Free Estimate</a>
         </div>
     </section>
     </main>
@@ -234,15 +288,21 @@
         <div class="container mx-auto text-center px-4">
             <p class="text-sm md:text-base">&copy; 2025&ndash;2026 A+ Paving & Landscaping. All rights reserved.</p>
             <div class="grid grid-cols-3 md:flex md:flex-wrap md:justify-center gap-x-4 md:gap-x-6 gap-y-2 mt-6 text-sm md:text-base">
-                <a href="index.html" class="hover:text-custom-green transition duration-300">Home</a>
-                <a href="services.html" class="hover:text-custom-green transition duration-300">Services</a>
-                <a href="gallery.html" class="text-custom-green font-semibold hover:text-custom-green transition duration-300">Gallery</a>
-                <a href="about.html" class="hover:text-custom-green transition duration-300">About Us</a>
-                <a href="about.html#reviews" class="hover:text-custom-green transition duration-300">Reviews</a>
-                <a href="service-area.html" class="hover:text-custom-green transition duration-300">Service Areas</a>
-                <a href="contact.html" class="hover:text-custom-green transition duration-300">Contact</a>
-                <a href="faq.html" class="hover:text-custom-green transition duration-300">FAQ</a>
-                <a href="blog.html" class="hover:text-custom-green transition duration-300">Blog</a>
+                <a href="/" class="hover:text-custom-green transition duration-300">Home</a>
+                <a href="/services" class="hover:text-custom-green transition duration-300">Services</a>
+                <a href="/gallery" class="text-custom-green font-semibold hover:text-custom-green transition duration-300">Gallery</a>
+                <a href="/about" class="hover:text-custom-green transition duration-300">About Us</a>
+                <a href="/about#reviews" class="hover:text-custom-green transition duration-300">Reviews</a>
+                <a href="/service-area" class="hover:text-custom-green transition duration-300">Service Areas</a>
+                <a href="/contact" class="hover:text-custom-green transition duration-300">Contact</a>
+                <a href="/faq" class="hover:text-custom-green transition duration-300">FAQ</a>
+                <a href="/blog" class="hover:text-custom-green transition duration-300">Blog</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4 text-sm">
+                <a href="/services/driveway-paving" class="hover:text-custom-green transition duration-300">Driveway Paving</a>
+                <a href="/services/parking-lots" class="hover:text-custom-green transition duration-300">Parking Lots</a>
+                <a href="/services/sealcoating" class="hover:text-custom-green transition duration-300">Sealcoating</a>
+                <a href="/services/landscaping" class="hover:text-custom-green transition duration-300">Landscaping</a>
             </div>
         </div>
     </footer>
@@ -259,7 +319,7 @@
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
     </button>
 
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
     <script>
     (function() {
         const lightbox = document.getElementById('lightbox');
