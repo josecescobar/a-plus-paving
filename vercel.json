@@ -2,6 +2,10 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/sealcoating", "destination": "/services/sealcoating" },
+    { "source": "/driveway-paving", "destination": "/services/driveway-paving" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
