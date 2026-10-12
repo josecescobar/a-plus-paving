@@ -280,6 +280,47 @@ a.inline-block:active {
     overflow: hidden;
 }
 
+/* ── Header nav ────────────────────────────────── */
+
+@media (max-width: 767px) {
+    .brand-name {
+        max-width: calc(100vw - 7.75rem);
+    }
+
+    .nav-sub {
+        padding-left: 0.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-sub {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 22rem;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        padding: 0.35rem 0;
+        z-index: 60;
+    }
+
+    .nav-item:hover .nav-sub,
+    .nav-item:focus-within .nav-sub {
+        display: block;
+    }
+
+    .nav-sub a {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        white-space: normal;
+    }
+}
+
 .form-error:not(.hidden) {
     background: #991b1b;
     color: #fff;

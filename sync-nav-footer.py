@@ -22,9 +22,9 @@ NAV_ACTIVE = {
     "gallery.html": "gallery.html",
     "about.html": "about.html",
     "contact.html": "contact.html",
-    "blog.html": None,  # no nav link for blog
-    "faq.html": None,
-    "service-area.html": None,
+    "blog.html": "blog.html",
+    "faq.html": "faq.html",
+    "service-area.html": "service-area.html",
     "404.html": None,
 }
 
@@ -40,7 +40,7 @@ FOOTER_ACTIVE = {
     "404.html": None,
 }
 
-BLOG_NAV_ACTIVE = None  # blog posts don't highlight any nav item
+BLOG_NAV_ACTIVE = "blog.html"
 BLOG_FOOTER_ACTIVE = "blog.html"
 
 ACTIVE_NAV_CLASSES = "text-custom-green font-semibold hover:text-custom-green"
@@ -167,7 +167,7 @@ def process():
             nav_active = "services.html"
             footer_active = basename
         elif reldir == "service-area":
-            nav_active = None
+            nav_active = "service-area.html"
             footer_active = "service-area.html"
         else:
             nav_active = NAV_ACTIVE.get(basename)
