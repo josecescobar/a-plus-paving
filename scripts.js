@@ -79,7 +79,7 @@
     cta.setAttribute('role', 'region');
     cta.setAttribute('aria-label', 'Call or request an estimate');
     cta.innerHTML = ''
-        + '<a class="mobile-cta-call" href="tel:+13045793872" aria-label="Call A+ Paving and Landscaping at (304) 579-3872">'
+        + '<a class="mobile-cta-call" href="tel:+13045793872" aria-label="Call A+ Paving & Landscaping at (304) 579-3872">'
         + '<span class="mobile-cta-kicker">Call</span>'
         + '<span class="mobile-cta-number">(304) 579-3872</span>'
         + '</a>'
