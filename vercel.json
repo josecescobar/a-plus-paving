@@ -9,7 +9,7 @@
         { "type": "host", "value": "www.apluspavingtoday.com" }
       ],
       "destination": "https://apluspavingtoday.com/$1",
-      "permanent": true
+      "statusCode": 301
     }
   ],
   "rewrites": [
